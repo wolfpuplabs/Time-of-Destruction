@@ -70,22 +70,26 @@ p,figure,blockquote{margin:0}
 .folio{height:40px;display:inline-flex;align-items:center;padding:0 .9rem;border-radius:999px;
   font:500 .7rem/1 var(--mono);letter-spacing:.1em;color:var(--lead);font-variant-numeric:tabular-nums;white-space:nowrap}
 
-/* gate: one tap to begin, which is also what lets the browser play sound */
+/* gate: one quiet page and one tap; the tap is what lets the browser start the music */
 html.locked,html.locked body{overflow:hidden}
 .gate{position:fixed;top:0;left:0;right:0;bottom:0;z-index:100;background:var(--paper);display:flex;align-items:center;justify-content:center;
-  padding:calc(24px + env(safe-area-inset-top,0px)) var(--gutter) calc(24px + env(safe-area-inset-bottom,0px));transition:opacity .9s ease,visibility 0s .9s}
+  padding:calc(40px + env(safe-area-inset-top,0px)) calc(var(--gutter) + 8px) calc(40px + env(safe-area-inset-bottom,0px));transition:opacity 1.1s ease,visibility 0s 1.1s}
 .gate.out{opacity:0;visibility:hidden}
-.gate-in{max-width:720px;width:100%;display:flex;flex-direction:column;align-items:flex-start}
-.gate-in > * + *{margin-top:clamp(16px,2.6vh,28px)}
-.gate h2{margin:0;font-family:var(--display);font-weight:260;line-height:.88;font-size:clamp(3rem,11vw,8.5rem);font-variation-settings:"wdth" 62;letter-spacing:-.01em}
-.gate-sub{font:italic 300 clamp(1.1rem,2vw,1.45rem)/1.45 var(--serif);color:var(--lead);max-width:34ch}
-.begin{margin-top:clamp(24px,4vh,44px)!important;display:inline-flex;align-items:center;cursor:pointer;color:var(--paper);background:var(--graphite);border:0;
-  border-radius:999px;padding:16px 26px 16px 20px;font:500 1rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;transition:transform .25s ease}
-.begin:hover{transform:translateY(-2px)}
-.begin svg{width:22px;height:22px;margin-right:12px}
-.gate-note{font:400 .78rem/1.4 var(--mono);letter-spacing:.04em;color:var(--lead)}
-.quiet{background:none;border:0;padding:6px 0;cursor:pointer;color:var(--lead);font:500 .74rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
+.gate-in{width:100%;max-width:560px;display:grid;justify-items:start;animation:rise 1.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.g-eyebrow{font:500 .7rem/1.4 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--lead)}
+.gate h2{margin:22px 0 0;font-family:var(--display);font-weight:240;line-height:1;font-size:clamp(3.4rem,15vw,7.5rem);font-variation-settings:"wdth" 62;letter-spacing:0}
+.gate-sub{margin-top:26px;font:italic 300 clamp(1.15rem,2.4vw,1.4rem)/1.5 var(--serif);color:var(--lead);max-width:28ch}
+.g-rule{margin-top:clamp(48px,9vh,88px);width:40px;height:1px;background:var(--hair)}
+.begin{margin-top:clamp(28px,5vh,44px);cursor:pointer;background:transparent;color:var(--graphite);border:1px solid var(--graphite);border-radius:999px;
+  padding:15px 30px;font:500 .8rem/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;transition:background .35s ease,color .35s ease;-webkit-tap-highlight-color:transparent}
+.begin:hover,.begin:active{background:var(--graphite);color:var(--paper)}
+.begin:focus{outline:none}
+.begin:focus-visible{outline:1px solid var(--accent);outline-offset:4px}
+.quiet{margin-top:18px;background:none;border:0;padding:4px 0;cursor:pointer;color:var(--lead);font:400 .78rem/1.4 var(--mono);letter-spacing:.06em;-webkit-tap-highlight-color:transparent}
 .quiet:hover{color:var(--graphite)}
+.g-note{display:flex;align-items:center;margin-top:clamp(40px,8vh,72px);font:400 .72rem/1.4 var(--mono);letter-spacing:.08em;color:var(--lead)}
+.g-note svg{width:15px;height:15px;margin-right:10px;flex:none}
 
 /* sheets melt into the paper in light; sit on a light table in dark */
 .art img{-webkit-mask-image:var(--melt-a),var(--melt-b);mask-image:var(--melt-a),var(--melt-b);-webkit-mask-composite:source-in;mask-composite:intersect;border-radius:var(--sheet-radius);box-shadow:var(--sheet-shadow)}
@@ -123,7 +127,7 @@ html.locked,html.locked body{overflow:hidden}
 
 /* ---------- title ---------- */
 .title{min-height:100vh;min-height:100svh;padding-left:var(--gutter);padding-right:var(--gutter);display:grid;align-content:center;gap:clamp(56px,9vw,110px);padding-top:clamp(60px,10vh,120px);padding-bottom:clamp(60px,10vh,120px)}
-.title h1{margin:0;font-family:var(--display);font-weight:260;line-height:.86;letter-spacing:-.01em;font-size:clamp(3.2rem,13vw,13rem);font-variation-settings:"wdth" 62}
+.title h1{margin:0;font-family:var(--display);font-weight:260;line-height:.98;letter-spacing:-.01em;font-size:clamp(3.2rem,13vw,13rem);font-variation-settings:"wdth" 62}
 .title h1 .of{display:block}
 .title h1 .ch{display:inline-block;will-change:transform}
 .creed{font:300 clamp(1.4rem,3.3vw,2.8rem)/1.25 var(--serif);max-width:24ch;justify-self:end;text-align:right;text-wrap:balance}
@@ -170,12 +174,13 @@ footer > *{margin:4px 16px 4px 0}
 
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle" hidden>
   <div class="gate-in">
-    <p class="mono">Sketches of Octagon Studio · Juned Widi Nugroho · pp. 44–55</p>
-    <h2 id="gateTitle">Time of Destruction</h2>
-    <p class="gate-sub">Eleven drawings and the words that came with them. Scroll slowly; each page waits for you.</p>
-    <button class="begin" id="beginBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><rect x="2.5" y="13.5" width="4.5" height="7" rx="1.5"/><rect x="17" y="13.5" width="4.5" height="7" rx="1.5"/></svg>Begin</button>
-    <p class="gate-note">Plays a binaural post-rock score. Headphones recommended.</p>
-    <button class="quiet" id="quietBtn" type="button">Begin without sound</button>
+    <p class="g-eyebrow">Juned Widi Nugroho</p>
+    <h2 id="gateTitle">Time of<br>Destruction</h2>
+    <p class="gate-sub">Eleven drawings, and the words that came with them.</p>
+    <span class="g-rule" aria-hidden="true"></span>
+    <button class="begin" id="beginBtn" type="button">Begin</button>
+    <button class="quiet" id="quietBtn" type="button">or continue without sound</button>
+    <p class="g-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><rect x="2.5" y="13.5" width="4.5" height="7" rx="1.5"/><rect x="17" y="13.5" width="4.5" height="7" rx="1.5"/></svg>Best with headphones</p>
   </div>
 </div>
 
@@ -426,7 +431,6 @@ footer > *{margin:4px 16px 4px 0}
   };
   document.getElementById('beginBtn').addEventListener('click',()=>enter(true));
   document.getElementById('quietBtn').addEventListener('click',()=>enter(false));
-  document.getElementById('beginBtn').focus({preventScroll:true});
 
   /* Animation is on by default (also on phones with Reduce Motion); the button turns it off for this viewer. */
   let off=false; try{off=localStorage.getItem('tod-motion')==='off'}catch(e){}
