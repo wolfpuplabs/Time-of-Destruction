@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Time of Destruction: the personal chapter of Sketches of Octagon Studio by Juned Widi Nugroho.">
+<meta property="og:title" content="Time of Destruction">
+<meta property="og:description" content="Pencil, ink and watercolor drawings with the words that came with them. Sketches of Octagon Studio, pp. 44-55.">
+<meta property="og:image" content="/img/t50.jpg">
+<meta name="theme-color" content="#e7e4df">
+<link rel="icon" href="/img/astro.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<title>Time of Destruction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,200..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one drawing per screen. Each scene pins while the sheet is drawn in and its quote surfaces word by word; an empty page opens it, a peephole closes it. */
+:root{
+  --paper:#e7e4df;        /* scanned sketch paper */
+  --paper-deep:#dcd8d1;
+  --graphite:#262523;     /* 4B lead */
+  --lead:#6b6862;         /* HB lead */
+  --hair:#c6c1b9;
+  --accent:#2f6a4c;       /* pencil-barrel green, used once per screen at most */
+  --melt-a:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);
+  --melt-b:linear-gradient(to bottom,transparent,#000 6%,#000 94%,transparent);
+  --sheet-shadow:none;
+  --sheet-radius:0px;
+  --display:"Anybody","Arial Narrow",system-ui,sans-serif;
+  --serif:"Newsreader","Iowan Old Style",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gutter:clamp(16px,4vw,64px);
+  --astro-filter:none;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#171615;--paper-deep:#201f1d;--graphite:#ebe7e1;--lead:#9d988f;--hair:#3b3936;--accent:#8cc5a3;
+  --melt-a:linear-gradient(#000,#000);--melt-b:linear-gradient(#000,#000);--sheet-shadow:0 34px 80px -30px rgba(0,0,0,.9);--sheet-radius:3px;--astro-filter:invert(1);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#171615;--paper-deep:#201f1d;--graphite:#ebe7e1;--lead:#9d988f;--hair:#3b3936;--accent:#8cc5a3;
+  --melt-a:linear-gradient(#000,#000);--melt-b:linear-gradient(#000,#000);--sheet-shadow:0 34px 80px -30px rgba(0,0,0,.9);--sheet-radius:3px;--astro-filter:invert(1);color-scheme:dark}
+
+body{background:var(--paper);color:var(--graphite);font:400 1.125rem/1.6 var(--serif);-webkit-font-smoothing:antialiased}
+main{overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+::selection{background:var(--accent);color:var(--paper)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+p,figure,blockquote{margin:0}
+.mono{font:500 .72rem/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--lead)}
+
+/* chrome */
+.progress{position:fixed;inset:0 0 auto 0;height:2px;z-index:50;padding-top:env(safe-area-inset-top,0px);pointer-events:none}
+.progress i{display:block;height:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0)}
+.folio{position:fixed;right:var(--gutter);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:50;
+  font:500 .7rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--lead);font-variant-numeric:tabular-nums;
+  background:color-mix(in srgb,var(--paper) 80%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid var(--hair);padding:.55rem .8rem;border-radius:999px}
+
+/* sheets melt into the paper in light; sit on a light table in dark */
+.art img{-webkit-mask-image:var(--melt-a),var(--melt-b);mask-image:var(--melt-a),var(--melt-b);-webkit-mask-composite:source-in;mask-composite:intersect;border-radius:var(--sheet-radius);box-shadow:var(--sheet-shadow)}
+
+/* ---------- opening: the empty page ---------- */
+.void{position:relative;min-height:100svh;padding-inline:var(--gutter);display:grid;align-content:space-between;padding-block:clamp(28px,6vh,64px) calc(clamp(28px,6vh,64px) + 56px)}
+.void .top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.void .empty{font:italic 300 clamp(1.05rem,1.7vw,1.4rem)/1.4 var(--serif);color:var(--lead);max-width:30ch}
+.void .astro{position:absolute;height:min(74svh,660px);width:auto;max-width:none;right:clamp(4%,14vw,22%);top:50%;translate:0 -50%;filter:var(--astro-filter);pointer-events:none;transform-origin:50% 40%}
+@media (max-width:760px){.void .astro{height:min(58svh,520px);right:4%}}
+.motion-toggle{position:fixed;left:var(--gutter);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:50;
+  font:500 .7rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--lead);cursor:pointer;
+  background:color-mix(in srgb,var(--paper) 80%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid var(--hair);padding:.55rem .8rem;border-radius:999px}
+.motion-toggle:hover{color:var(--graphite)}
+.void .hint{display:flex;align-items:center;gap:.7rem}
+.void .hint i{width:44px;height:1px;background:var(--graphite);transform-origin:0 50%;animation:cue 2.6s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleX(.2)}50%{transform:scaleX(1)}}
+
+/* ---------- title ---------- */
+.title{min-height:100svh;padding-inline:var(--gutter);display:grid;align-content:center;gap:clamp(56px,9vw,110px);padding-block:clamp(60px,10vh,120px)}
+.title h1{margin:0;font-family:var(--display);font-weight:260;line-height:.86;letter-spacing:-.01em;font-size:clamp(3.2rem,13vw,13rem);font-variation-settings:"wdth" 62}
+.title h1 .of{display:block}
+.title h1 .ch{display:inline-block;will-change:transform}
+.creed{font:300 clamp(1.4rem,3.3vw,2.8rem)/1.25 var(--serif);max-width:24ch;justify-self:end;text-align:right;text-wrap:balance}
+.creed .w,.q .w{display:inline-block}
+
+/* ---------- scenes ---------- */
+.scene{min-height:100svh;padding-inline:var(--gutter);padding-block:clamp(40px,8vh,90px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,90px);align-items:center;max-width:1500px;margin-inline:auto}
+.scene.flip{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+.scene.flip .art{order:2}
+.scene .art{justify-self:center;width:100%}
+.scene .art img{max-height:78svh;width:auto;margin-inline:auto;object-fit:contain}
+.scene.tall .art img{max-height:82svh}
+.q{font:italic 300 clamp(1.3rem,2.4vw,2.1rem)/1.38 var(--serif);text-wrap:pretty;max-width:30ch}
+.q.long{font-size:clamp(1.1rem,1.9vw,1.6rem);max-width:34ch}
+.q.solo{font:italic 300 clamp(2.4rem,6vw,5.4rem)/1.05 var(--serif)}
+.q p + p{margin-top:.5em}
+.q cite{display:block;margin-top:1.3rem;font:500 .72rem/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;font-style:normal;color:var(--lead)}
+.q .pn{display:block;margin-bottom:1.2rem;font:500 .72rem/1 var(--mono);letter-spacing:.12em;color:var(--accent);font-style:normal;font-variant-numeric:tabular-nums}
+@media (max-width:760px){
+  .scene,.scene.flip{grid-template-columns:1fr;align-content:center;gap:22px}
+  .scene.flip .art{order:0}
+  .scene .art img,.scene.tall .art img{max-height:48svh}
+  .q,.q.long{max-width:none}
+}
+
+/* ---------- finale: you only see what I choose ---------- */
+.finale{min-height:100svh;padding-inline:var(--gutter);display:grid;place-items:center;align-content:center;gap:clamp(24px,4vw,48px);text-align:center;padding-block:clamp(60px,10vh,120px)}
+.finale .q.solo{max-width:18ch;font-size:clamp(2rem,5.4vw,4.8rem)}
+.peep{width:min(760px,100%);clip-path:circle(var(--rad,75%) at 50% 50%)}
+.peep img{-webkit-mask-image:var(--melt-a),var(--melt-b);mask-image:var(--melt-a),var(--melt-b);-webkit-mask-composite:source-in;mask-composite:intersect;border-radius:var(--sheet-radius)}
+
+footer{border-top:1px solid var(--hair);margin-inline:var(--gutter);padding-block:26px 90px;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+</style>
+
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+<div class="folio" id="folio">p. 44 / 55</div>
+<button class="motion-toggle" id="motionBtn" type="button" aria-pressed="false">Motion: on</button>
+
+<main>
+  <!-- p.44 — an empty page with one astronaut on it -->
+  <section class="void" data-p="44" aria-label="Opening">
+    <div class="top">
+      <span class="mono">Sketches of Octagon Studio · Juned Widi Nugroho</span>
+      <span class="mono">Chapter · pp. 44–55</span>
+    </div>
+    <img class="astro" id="astro" src="img/astro.png" width="457" height="1093" alt="An astronaut drifting alone on an empty page">
+    <div style="display:grid;gap:2rem">
+      <p class="empty" id="empty">“Nobody ever tells you that emptiness weighs the most.”</p>
+      <p class="hint mono"><i></i>Scroll slowly</p>
+    </div>
+  </section>
+
+  <!-- title + creed -->
+  <section class="title" data-p="44" aria-label="Time of Destruction">
+    <h1 id="h1"><span class="of">Time of</span><span class="dest" aria-label="Destruction">Destruction</span></h1>
+    <p class="creed split">I draw entirely to find out what I'm thinking, what I'm looking at, what I see and what it means. What I want and what I fear. The things people don't say.</p>
+  </section>
+
+  <section class="scene" data-p="45">
+    <figure class="art"><img src="img/t45.jpg" width="1400" height="775" alt="A kitten and a puppy in pencil, each beside the pen that drew it" decoding="async"></figure>
+    <blockquote class="q"><span class="pn">p. 45</span><p class="split">“I crave adventure, attention, and you.”</p></blockquote>
+  </section>
+
+  <section class="scene flip" data-p="46">
+    <figure class="art"><img src="img/t46.jpg" width="1400" height="945" alt="A Volkswagen camper van with luggage on the roof, pencil" decoding="async"></figure>
+    <blockquote class="q solo"><span class="pn">p. 46</span><p class="split">“Wanderlust.”</p></blockquote>
+  </section>
+
+  <section class="scene tall" data-p="47">
+    <figure class="art"><img src="img/t47.jpg" width="891" height="1400" alt="A woman tying up her hair, loose pencil lines" decoding="async"></figure>
+    <blockquote class="q"><span class="pn">p. 47</span><p class="split">“What a terrible mistake to let go of something wonderful for something real.”</p><cite>Miranda July, No One Belongs Here More Than You</cite></blockquote>
+  </section>
+
+  <section class="scene flip tall" data-p="48">
+    <figure class="art"><img src="img/t48.jpg" width="1012" height="1400" alt="Watercolor of a girl covering her face with her hand" decoding="async"></figure>
+    <blockquote class="q"><span class="pn">p. 48</span><p class="split">“You'll likely end up disappointed if you think people will care for you the way you care for them.</p><p class="split">Not everybody has your heart.”</p></blockquote>
+  </section>
+
+  <section class="scene tall" data-p="49">
+    <figure class="art"><img src="img/t49.jpg" width="1085" height="1400" alt="A girl in round glasses sticking out her tongue, light pencil" decoding="async"></figure>
+    <blockquote class="q long"><span class="pn">p. 49</span><p class="split">“Sexy doesn't impress me.. smart impresses me.. strength of character impresses me..</p><p class="split">But most of all, I'm impressed by kindness.. when I see that in someone, it fills me with admiration.”</p><cite>Lisa Unger, Four Thrillers</cite></blockquote>
+  </section>
+
+  <section class="scene flip" data-p="50">
+    <figure class="art"><img src="img/t50.jpg" width="1400" height="1375" alt="A sleeping girl in a knitted hat holding a toy" decoding="async"></figure>
+    <blockquote class="q"><span class="pn">p. 50</span><p class="split">“Don't forget to love her.</p><p class="split">The little girl you used to be.</p><p class="split">Perhaps she lies within you.</p><p class="split">Untucked. Sleeping peacefully.”</p><cite>“Nurture.” by Kiana Llanos</cite></blockquote>
+  </section>
+
+  <section class="scene tall" data-p="51">
+    <figure class="art"><img src="img/t51.jpg" width="990" height="1400" alt="A woman looking upward with a hand on her head, pencil" decoding="async"></figure>
+    <blockquote class="q"><span class="pn">p. 51</span><p class="split">“She had her eyes on the sky</p><p class="split">~ but I had my eyes on my world.”</p></blockquote>
+  </section>
+
+  <section class="scene flip" data-p="52">
+    <figure class="art"><img src="img/t52.jpg" width="1400" height="565" alt="The same face behind a knitted scarf, once in color and once in pencil" decoding="async"></figure>
+    <blockquote class="q"><span class="pn">p. 52</span><p class="split">“What is that you express in your eyes?</p><p class="split">It seems to me more than all the print I have read in my life.”</p><cite>Walt Whitman</cite></blockquote>
+  </section>
+
+  <section class="scene" data-p="53">
+    <figure class="art"><img src="img/t53.jpg" width="1400" height="893" alt="Two figure studies of a woman undressing, watercolor and pencil" decoding="async"></figure>
+    <blockquote class="q"><span class="pn">p. 53</span><p class="split">“You have this uncanny ability to make my heart sing and panties wet, she said, I find it all pleasantly disturbing.”</p><cite>Michael Faudet</cite></blockquote>
+  </section>
+
+  <section class="scene flip" data-p="54">
+    <figure class="art"><img src="img/t54.jpg" width="1400" height="507" alt="A printed t-shirt of a girl hugging her knees, beside the original pencil drawing" decoding="async"></figure>
+    <blockquote class="q"><span class="pn">p. 54</span><p class="split">“Suddenly she realized that what she was regretting was not the lost past but the lost future,</p><p class="split">not what had not been but what would never be.”</p><cite>F. Scott Fitzgerald</cite></blockquote>
+  </section>
+
+  <section class="finale" data-p="55" id="finale">
+    <p class="q solo split">“After all, you only see what I choose to show you.”</p>
+    <figure class="peep" id="peep"><img src="img/t55.jpg" width="1400" height="1037" alt="An open sketchbook with a reclining figure drawn in ink" decoding="async"></figure>
+  </section>
+</main>
+
+<footer>
+  <span class="mono">Time of Destruction · pp. 44–55</span>
+  <span class="mono">Sketches of Octagon Studio · Juned Widi Nugroho</span>
+</footer>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  const folio=document.getElementById('folio'), bar=document.getElementById('bar');
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) folio.textContent='p. '+e.target.dataset.p+' / 55' }),{rootMargin:'-50% 0px -50% 0px'});
+  document.querySelectorAll('[data-p]').forEach(el=>io.observe(el));
+  let tick=false;
+  const prog=()=>{const h=document.documentElement.scrollHeight-innerHeight;bar.style.transform='scaleX('+(h>0?scrollY/h:0)+')';tick=false};
+  addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(prog)}},{passive:true});prog();
+
+  /* Animation is on by default (also on phones with Reduce Motion); the button turns it off for this viewer. */
+  let off=false; try{off=localStorage.getItem('tod-motion')==='off'}catch(e){}
+  const btn=document.getElementById('motionBtn');
+  btn.textContent='Motion: '+(off?'off':'on'); btn.setAttribute('aria-pressed',String(off));
+  btn.addEventListener('click',()=>{try{localStorage.setItem('tod-motion',off?'on':'off')}catch(e){} location.reload()});
+  if(off||!window.gsap||!window.ScrollTrigger){ if(!off&&!window.gsap) btn.hidden=true; return; }
+  ScrollTrigger.config({ignoreMobileResize:true});
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* split text into words (screen readers still get the paragraph text) */
+  document.querySelectorAll('.split').forEach(p=>{
+    p.setAttribute('aria-label',p.textContent.trim());
+    p.innerHTML=p.textContent.trim().split(/\s+/).map(w=>'<span class="w" aria-hidden="true">'+w+'</span>').join(' ');
+  });
+  /* split "Destruction" into letters */
+  const dest=document.querySelector('.dest');
+  dest.innerHTML=[...dest.textContent].map(c=>'<span class="ch" aria-hidden="true">'+c+'</span>').join('');
+
+  /* ---- p.44: the astronaut drifts across the empty page ---- */
+  /* he arrives close, then drifts away until the page is almost empty */
+  gsap.from('#astro',{opacity:0,scale:.9,rotate:-6,duration:2.2,ease:'expo.out'});
+  gsap.from('#empty',{opacity:0,y:14,duration:1.6,ease:'power2.out',delay:.6});
+  gsap.to('#astro',{y:-14,duration:3.2,ease:'sine.inOut',yoyo:true,repeat:-1});
+  gsap.timeline({scrollTrigger:{trigger:'.void',start:'top top',end:'+=130%',pin:true,scrub:1}})
+    .to('#astro',{xPercent:-260,yPercent:-55,scale:.12,rotate:32,ease:'power1.in'},0)
+    .to('#empty',{scale:1.15,transformOrigin:'0% 100%',ease:'none'},0)
+    .to('.void .hint',{opacity:0,duration:.2},0);
+
+  const fs=parseFloat(getComputedStyle(document.getElementById('h1')).fontSize)||100;
+  /* ---- title: "Destruction" comes apart while the creed is written in ---- */
+  const tt=gsap.timeline({scrollTrigger:{trigger:'.title',start:'top top',end:'+=140%',pin:true,scrub:.6}});
+  tt.fromTo('#h1',{'fontVariationSettings':'"wdth" 50'},{'fontVariationSettings':'"wdth" 90',ease:'none',duration:1},0)
+    .fromTo('.title .creed .w',{opacity:.08},{opacity:1,ease:'none',stagger:.04,duration:.3},.1)
+    .to('.dest .ch',{y:()=>gsap.utils.random(-.25,.7)*fs,x:()=>gsap.utils.random(-.15,.15)*fs,rotate:()=>gsap.utils.random(-40,40),opacity:()=>gsap.utils.random(.15,.6),ease:'power1.in',stagger:{each:.03,from:'random'},duration:.7},.6);
+
+  /* ---- each drawing: pinned, the sheet develops, then the words surface ---- */
+  gsap.utils.toArray('.scene').forEach(sc=>{
+    const art=sc.querySelector('.art'), img=art.querySelector('img');
+    const words=sc.querySelectorAll('.q .w'), extras=sc.querySelectorAll('.q cite,.q .pn');
+    const flip=sc.classList.contains('flip');
+    const tl=gsap.timeline({scrollTrigger:{trigger:sc,start:'top top',end:'+='+(90+words.length*2.2)+'%',pin:true,scrub:.6}});
+    tl.fromTo(art,{clipPath:flip?'inset(0% 0% 0% 100%)':'inset(0% 100% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',ease:'power1.inOut',duration:1},0)
+      .fromTo(img,{scale:1.12,filter:'blur(8px) grayscale(1)'},{scale:1,filter:'blur(0px) grayscale(0)',ease:'power1.out',duration:1.1},0)
+      .fromTo(words,{opacity:.06,y:8},{opacity:1,y:0,ease:'none',stagger:.06,duration:.4},.55)
+      .fromTo(extras,{opacity:0},{opacity:1,duration:.3},.4)
+      .to({}, {duration:.4});   /* hold before the next page */
+  });
+
+  /* ---- p.55: a peephole that only opens as far as he allows ---- */
+  const ft=gsap.timeline({scrollTrigger:{trigger:'#finale',start:'top top',end:'+=150%',pin:true,scrub:.6}});
+  ft.fromTo('#finale .w',{opacity:.06},{opacity:1,stagger:.08,ease:'none',duration:.3},0)
+    .fromTo('#peep',{'--rad':'6%'},{'--rad':'75%',ease:'power2.inOut',duration:1},.35);
+
+  let rt; const refresh=()=>{clearTimeout(rt);rt=setTimeout(()=>ScrollTrigger.refresh(),250)};
+  addEventListener('load',refresh);
+  document.querySelectorAll('img').forEach(i=>{ if(!i.complete) i.addEventListener('load',refresh,{once:true}) });
+})();
+</script>
+
+</body>
+</html>
